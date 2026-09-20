@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsigve</title>
+</head>
+<style>
+    body{
+        font-family: Arial, Helvetica, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #1a1a1a;
+    }
+    .responsive-div{
+        color: #fff;
+        background-color: #fb0000;
+        font-size: 20px;
+        padding: 2px;
+        margin: 10px;
+    }
+
+    @media (max-width: 600px) {
+        .responsive-div{
+            background-color: #5a5a5a;
+        }
+    }
+
+    @media (min-width: 650px) {
+        .responsive-div{
+            background-color: #2509fe;
+        }
+    }
+
+</style>
+<body>
+    <div class="responsive-div">
+        <p>This is a responsive tag. It changes it's attribute based on breakpoints</p>
+    </div>
+</body>
+</html>

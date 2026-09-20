@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selectors</title>
+    <style>
+        body{
+            font-size: large;
+        }
+        /* Universal selectors */
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        /* type selectors */
+        p{
+            margin: 10px 20px 10px 20px;
+        }
+
+        /* class selectors */
+        .class{
+            background-color: #ff5757;
+        }
+
+        /* id selectors [Only one ID per page] */
+        #header{
+            background-color: #9f9696;
+        }
+
+        /* attribute */
+        input[type="text"]{
+            border: 1px solid;
+        }
+
+        /* descendent selectors */
+        article p{
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-style: italic;
+            color: aqua;
+            background-color: #000000;
+            padding: 0;
+            margin: 0;
+        }
+
+        /* child selector */
+        div > p{
+            color: #ff5757;
+        }
+    </style>
+</head>
+<body>
+    <header id="header">I am a header</header>
+    <h1>Yoo</h1>
+    <h2>Hello i am Happy</h2>
+    <p class="class">Hello</p>
+    <input type="text" placeholder="Enter your name">
+    <child></child>
+    <div>
+        <p>This paragragh is a descendent of div</p>
+        <p>and we read it as "All 'p' which are descendent of 'div'"</p>
+        <article>
+            <p>
+                This is a descendent of div and a child of article
+            </p>
+        </article>
+    </div>
+    <div>
+        <p>this is child 1</p>
+        <p>this is child 2</p>
+        <section>
+            this is child three which has 3 children
+            <p>And we</p>
+            <p>can select</p>
+            <p>any particular child and edit it</p>
+        </section   >
+    </div>
+</body>
+</html>

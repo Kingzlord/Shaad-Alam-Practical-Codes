@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Galactic Explorer</title>
+    <style>
+      body {
+        margin: 0;
+        background-color: black;
+        color: white;
+        font-family: Arial, sans-serif;
+      }
+      canvas {
+        display: block;
+        background-color: #000;
+        margin: 0 auto;
+        border: 2px solid #fff;
+      }
+      #score {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        font-size: 24px;
+        color: #0f0;
+      }
+      #start-screen {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        font-size: 32px;
+        color: #0f0;
+        display: block;
+      }
+      #start-screen.show {
+        display: block;
+      }
+      #start-screen.hide {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="start-screen" class="show">
+      <p>Press SPACE to Start</p>
+    </div>
+    <canvas id="gameCanvas" width="800" height="600"></canvas>
+    <div id="score">Score: 0</div>
+
+    <script>
+      const canvas = document.getElementById("gameCanvas");
+      const ctx = canvas.getContext("2d");
+      const scoreDisplay = document.getElementById("score");
+      const startScreen = document.getElementById("start-screen");
+
+      // Game variables
+      let score = 0;
+      let gameRunning = false;
+
+      // Spaceship
+      const ship = {
+        x: canvas.width / 2,
+        y: canvas.height / 2,
+        width: 30,
+        height: 30,
+        color: "cyan",
+        speed: 5,
+      };
+
+      // Obstacles (asteroids)
+      const obstacles = [];
+      const obstacleCount = 5;
+
+      // Resource (stars)
+      const resources = [];
+      const resourceCount = 10;
+
+      // Game loop
+      function gameLoop() {
+        update();
+        draw();
+        requestAnimationFrame(gameLoop);
+      }
+
+      // Update game state
+      function update() {
+        // Move spaceship
+        if (keys["ArrowUp"] || keys["w"]) ship.y -= ship.speed;
+        if (keys["ArrowDown"] || keys["s"]) ship.y += ship.speed;
+        if (keys["ArrowLeft"] || keys["a"]) ship.x -= ship.speed;
+        if (keys["ArrowRight"] || keys["d"]) ship.x += ship.speed;
+
+        // Keep spaceship in bounds
+        ship.x = Math.max(0, Math.min(canvas.width - ship.width, ship.x));
+        ship.y = Math.max(0, Math.min(canvas.height - ship.height, ship.y));
+
+        // Spawn obstacles and resources
+        if (Math.random() < 0.02) {
+          obstacles.push({
+            x: Math.random() * canvas.width,
+            y: -20,
+            width: 20,
+            height: 20,
+            color: "red",
+            speed: 3,
+          });
+        }
+
+        if (Math.random() < 0.01) {
+          resources.push({
+            x: Math.random() * canvas.width,
+            y: -20,
+            width: 10,
+            height: 10,
+            color: "yellow",
+          });
+        }
+
+        // Move obstacles and resources
+        for (let i = 0; i < obstacles.length; i++) {
+          obstacles[i].y += obstacles[i].speed;
+          if (obstacles[i].y > canvas.height) {
+            obstacles.splice(i, 1);
+            i--;
+          }
+        }
+
+        for (let i = 0; i < resources.length; i++) {
+          resources[i].y += 2;
+          if (resources[i].y > canvas.height) {
+            resources.splice(i, 1);
+            i--;
+          }
+        }
+
+        // Collision detection
+        for (let i = 0; i < obstacles.length; i++) {
+          if (
+            ship.x < obstacles[i].x + obstacles[i].width &&
+            ship.x + ship.width > obstacles[i].x &&
+            ship.y < obstacles[i].y + obstacles[i].height &&
+            ship.y + ship.height > obstacles[i].y
+          ) {
+            endGame();
+          }
+        }
+
+        for (let i = 0; i < resources.length; i++) {
+          if (
+            ship.x < resources[i].x + resources[i].width &&
+            ship.x + ship.width > resources[i].x &&
+            ship.y < resources[i].y + resources[i].height &&
+            ship.y + ship.height > resources[i].y
+          ) {
+            score += 10;
+            resources.splice(i, 1);
+            i--;
+          }
+        }
+      }
+
+      // Draw everything
+      function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        // Draw spaceship
+        ctx.fillStyle = ship.color;
+        ctx.fillRect(ship.x, ship.y, ship.width, ship.height);
+
+        // Draw obstacles
+        for (let obstacle of obstacles) {
+          ctx.fillStyle = obstacle.color;
+          ctx.fillRect(obstacle.x, obstacle.y, obstacle.width, obstacle.height);
+        }
+
+        // Draw resources
+        for (let resource of resources) {
+          ctx.fillStyle = resource.color;
+          ctx.fillRect(resource.x, resource.y, resource.width, resource.height);
+        }
+
+        // Update score
+        scoreDisplay.textContent = "Score: " + score;
+      }
+
+      // Handle keyboard input
+      const keys = {};
+      window.addEventListener("keydown", (e) => {
+        keys[e.key] = true;
+      });
+      window.addEventListener("keyup", (e) => {
+        keys[e.key] = false;
+      });
+
+      // Start game
+      function startGame() {
+        gameRunning = true;
+        startScreen.classList.add("hide");
+        gameLoop();
+      }
+
+      // End game
+      function endGame() {
+        gameRunning = false;
+        alert("Game Over! Final Score: " + score);
+        startScreen.classList.remove("hide");
+      }
+
+      // Start game on SPACE key
+      document.addEventListener("keydown", (e) => {
+        if (e.code === "Space" && !gameRunning) {
+          startGame();
+        }
+      });
+    </script>
+  </body>
+</html>

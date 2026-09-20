@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Computer Store</title>
+    <style>
+        body{
+            background: url(https://static.vecteezy.com/system/resources/thumbnails/013/087/516/small_2x/diagonal-golden-line-glass-cube-on-black-background-illustration-of-website-banner-poster-sign-corporate-business-social-media-post-billboard-agency-advertising-media-motion-video-animation-wave-vector.jpg);
+            background-position: center;
+            background-size: cover;
+            background-attachment: fixed;
+            margin: 0;
+            padding: 0;
+            display: grid;
+            grid-template-areas: 'prd1 prd2';
+            gap: 0px;
+        }
+        .prd{
+            padding: 10px 0px 10px 10px;
+            background-color: #ebbb4b00;
+            border-radius: 20px;
+            transform: scale(1);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            transition: transform 1s ease;
+            
+        }
+        .prd:hover{
+            transform: scale(1.5)
+        }
+
+        .card{
+            margin: 0;
+            padding: 0;
+            height: 50vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .btn{
+            display: flex;
+            gap: 50px;
+        }
+        
+        button{
+            font-size: 25px;
+            color: #d4af37;
+            width: 200px;
+            position: relative;
+            border: 1px solid black;
+            background-color: #0000002b;
+            transition: backdrop-filter 0.5s ease-in-out,
+                        box-shadow 0.5s ease-in-out;
+        }
+        
+        button:hover{
+            backdrop-filter: blur(2.5px);
+            -webkit-backdrop-filter: blur(2.5px);
+            box-shadow: 0px 1px 5px #CEBEA4;
+        }
+        
+        .po::after{
+            content: "$2000";
+            font-size: 15px;
+            color: #CEBEA4;
+            background-color: #CEBEA4;
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            bottom: 0px;
+            left: 0;
+            transform: scaleX(0);
+            transition: transform 1s ease;
+        }
+        
+        .po:hover::after{
+            transform: scaleX(1);
+        }
+
+
+        .ico{
+            position: relative;
+        }
+
+        .ico::after{
+            content: "";
+            color: #CEBEA4;
+            background-color: #CEBEA4;
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            bottom: -0px;
+            left: 0;
+            transform: scaleX(0);
+            transition: transform 1s ease;
+        }
+        .ico:hover::after{
+            transform: scaleX(1);
+        }
+        .icon{
+            display:none;
+        }
+
+        .ico .icon{
+            display: block;
+            position: absolute;
+            left: 80px;
+            bottom: -26px;
+            min-width: 15px;
+            height: 30px;
+            transform: scale(0);
+            transition: transform 1s ease;
+        }
+        .ico:hover .icon{
+            transform: scale(1);
+
+        }
+
+
+        </style>
+</head>
+<body>
+    <div class="card" style="grid-area: prd1;">
+        <div class="prd">
+            <img src="https://i.postimg.cc/K8SwCvmq/pc.png"
+            alt="Computer"
+            height="250px"> <br>
+            <div class="btn">
+                <button class="po">Pre-Order</button>
+                <div class="ico">
+                    <button>Add to cart</button>
+                    <div>
+                        <img class="icon" src="https://i.postimg.cc/R0k8BsTf/carticon.png" alt="cart">
+                    </div>
+                </div>
+            </div>
+            <br>
+        </div>
+    </div>
+    <div class="card" style="grid-area: prd2;">
+        <div class="prd">
+             <img src="https://i.postimg.cc/K8SwCvmq/pc.png"
+            alt="Computer"
+            height="250px"> <br>
+            <div class="btn">
+                <button class="po">Pre-Order</button>
+                <div class="ico">
+                    <button>Add to cart</button>
+                    <div>
+                        <img class="icon" src="https://i.postimg.cc/R0k8BsTf/carticon.png" alt="cart">
+                    </div>
+                </div>
+            </div>
+            <br>
+        </div>
+    </div>
+
+</body>
+</html>
