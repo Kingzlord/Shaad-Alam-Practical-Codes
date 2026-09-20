@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/css" href="Rule.css"?>
+<book>
+	<books>
+		<title>Title: Web Programming </title>
+		<author>Author: Fatima miss </author>
+		<publisher>Publisher: Someone who don't how bad Fatima miss is</publisher>
+		<edition>Edition: Foot </edition>
+		<price>Price: $0 (bad things can't cost anything) </price>
+	</books>
+	<br/><br/>
+
+	<books>
+		<title>Title: Python Programming </title>
+		<author>Author: Hasan Sir </author>
+		<publisher>Publisher: Bench 2 </publisher>
+		<edition>Edition: 2 </edition>
+		<price>Price: $8 </price>
+	</books>
+	<br/><br/>
+</book>
+
+

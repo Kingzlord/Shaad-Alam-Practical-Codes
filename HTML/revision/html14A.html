@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset = "UTF-8">
+	<meta name = "viewport" content="width=device-width, initial-scale=1.0">
+	<title>Something else</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquerry.min.js"></script>
+	<style>
+		p:hover{
+		background-color:yellow;
+		}
+	</style>
+	<script>
+		$(document).ready(function(){
+			$("p").mouseover(function(){
+				$("p").css("background-color","yellow");
+			});
+			$("p").mouseout(function(){
+				$("p").css("background-color","white");
+			});
+		});
+	</script>
+</head>
+<body>
+	<p> Bring your fucking mouse here </p>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset = "UTF-8">
+	<meta name = "viewport" content="width=device-width, initial-scale=1.0">
+	<title>Extract digits</title>
+</head>
+<body>
+	<h1>Extract digits</h1><br>
+	<input type="text" id="input" placeholder="Enter a number">
+	<button onclick="extract()">Extract</button>
+	<p id="show"><p>
+</body>
+<script>
+	function extract(){
+		const n = document.getElementById("input").value;
+		const digits = 	n.split('').filter(char=> char!=='');
+		const op = digits.join('		');
+		document.getElementById("show").textContent = op;
+	}
+	
+</script>
+</html>

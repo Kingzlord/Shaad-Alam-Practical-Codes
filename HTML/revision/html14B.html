@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset = "UTF-8">
+	<meta name = "viewport" content="width=device-width, initial-scale=1.0">
+	<title>Something else</title>
+	<style>
+		body{
+			color:white;
+			background-color:black;
+			text-align:center;
+		}
+	</style>
+</head>
+<body>
+	<h1>Sending some Requests</h1>
+	<p id="result"></p>
+	<button onclick="sendreq()">Send sync Request </button>
+	<button onclick="sendreqA()">Send async Request </button>
+</body>
+<script>
+	let res = document.getElementById("result");
+	let req = new XMLHttpRequest();
+	function sendreq(){
+		
+		req.open('GET','https://jsonplaceholder.typicode.com/todos/1',true);
+		//req.onload=()=>{
+		//	res.innerText = "Response: "+req.responseText;
+		//}
+		//req.send();
+		//res.innerText += "\n\nOther Task executed\n\n";
+		res.innerText = '{\n"userId":1\n"id":1\n"title":delectus auto inem\n"completed":false}\n\nOther Task executed'
+	}
+
+	function sendreqA(){
+		//req.open('GET','https://jsonplaceholder.typicode.com/todos/1',false);
+		//req.onload=()=>{
+		//	res.innerText = "Response: \n"+req.responseText;
+		//}
+		//req.send();
+		//res.innerText += "\n\nOther Task executed\n\n";
+		res.innerText = 'Other Task executed\n{\n"userId":1\n"id":1\n"title":delectus auto inem\n"completed":false}\n\n';
+
+	}
+</script>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Java Script demostration</title>
+	<style>
+		body{
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-direction: column;
+		}
+		input{
+			height:50px;
+			font-size: 20px;
+			padding-left: 110px;
+		}
+	</style>
+</head>
+<body>
+	<h1>JavaScript demostration</h1>
+	
+	<button onclick="displayDate()">Display Date</button>
+	<br>
+	<input type="text" id="date" readonly>
+	<br>
+	<button onclick="displayMulti()">Generate a Multiplication table</button><br>
+	<button onclick="sumOfNumbers()">Sum of Numbers</button>
+<body>
+<script>
+	function displayDate(){
+		const currentDate=new Date();
+		document.getElementById("date").value = currentDate.toDateString();
+		console.log(currentDate);
+	}
+
+	function displayMulti(){
+		let n = prompt("Enter a number");
+		let table = "";
+		for(let i=1;i<=10;i++){
+			table +=`${n} x ${i} = ${n*1}\n`;	
+		}
+		alert(table);
+	}
+
+	function sumOfNumbers(){
+		let fn = prompt("Enter first number");
+		let sum = 0;
+		let addanother = true;
+		sum += parseInt(fn);
+		while(addanother){
+			addanother = confirm("Do you want to add another number?");
+			if(addanother){
+				let nn = prompt("Enter another number to add");
+				sum += parseInt(nn);
+			}	
+		}
+		alert(`sum=${sum}`);
+	}	
+</script>
+</html>

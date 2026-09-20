@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form Validation</title>
+    <style>
+        .error {
+            color: red;
+            font-size: 11px;
+        }
+        form{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+            flex-direction: column;
+            background-color: #00000084;
+            color: white;
+            font-size: larger;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            margin: 0 100px 100px 100px;
+            border-radius: 10px;
+        }
+        input,textarea{
+            padding: 1px 2px;
+            font-size: large;
+            border-radius: 5px;
+            border: solid 1px;
+        }
+        body{
+            background: url(https://marketplace.canva.com/EAGjMiVFC74/1/0/1280w/canva-blue-and-pink-gradient-abstract-background-instagram-post-1MYsUg62YuU.jpg);
+            font-size: larger;
+        }
+    </style>
+</head>
+<body>
+
+<h1 style="text-align: center;margin-top: 10px;">Registration Form</h1>
+
+<form id="registrationForm" onsubmit="return validateForm()">
+
+    <label for="firstName">First Name:</label>
+    <input type="text" id="firstName">
+    <span style="font-size: large;"  id="firstNameError" class="error"></span><br><br>
+
+    <label for="lastName">Last Name:</label>
+    <input type="text" id="lastName">
+    <span style="font-size: large;" id="lastNameError" class="error"></span><br><br>
+
+    <label for="email">Email:</label>
+    <input type="text" id="email">
+    <span style="font-size: large;" id="emailError" class="error"></span><br><br>
+
+    <label for="mobile">Mobile No:</label>
+    <input type="text" id="mobile">
+    <span style="font-size: large;" id="mobileError" class="error"></span><br><br>
+
+    <label for="password">Password:</label>
+    <input id="password">
+    <span style="font-size: large;" id="passwordError" class="error"></span><br><br>
+
+    <label for="address">Address:</label>
+    <textarea id="address"></textarea>
+    <span style="font-size: large;" id="addressError" class="error"></span><br><br>
+    <input type="submit" value="Register" style="color: white;background-color:black">
+
+    
+</form>
+
+<script>
+function validateForm() {
+    let isValid = true;
+    clearErrors();
+
+    // First Name
+    let firstName = document.getElementById("firstName").value;
+    if (!firstName.match(/^[a-zA-Z]+$/)) {
+        document.getElementById("firstNameError").textContent =
+            "First name must contain only letters.";
+        isValid = false;
+    }
+
+    // Last Name
+    let lastName = document.getElementById("lastName").value;
+    if (!lastName.match(/^[a-zA-Z]+$/)) {
+        document.getElementById("lastNameError").textContent =
+            "Last name must contain only letters.";
+        isValid = false;
+    }
+
+    // Email
+    let email = document.getElementById("email").value;
+    let emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+    if (!email.match(emailPattern)) {
+        document.getElementById("emailError").textContent =
+            "Please enter a valid email address.";
+        isValid = false;
+    }
+
+    // Mobile
+    let mobile = document.getElementById("mobile").value;
+    let mobilePattern = /^[0-9]{10}$/;
+    if (!mobile.match(mobilePattern)) {
+        document.getElementById("mobileError").textContent =
+            "Mobile number must be exactly 10 digits.";
+        isValid = false;
+    }
+
+    // Password
+    let password = document.getElementById("password").value;
+    let passwordPattern = /^(?=.*\d)(?=.*[!@#$%^&*]).{6,}$/;
+    if (!password.match(passwordPattern)) {
+        document.getElementById("passwordError").textContent =
+            "Password must be at least 6 characters and contain a special character.";
+        isValid = false;
+    }
+
+    // Address
+    let address = document.getElementById("address").value;
+    if (address.trim() === "") {
+        document.getElementById("addressError").textContent =
+            "Address cannot be empty.";
+        isValid = false;
+    }
+
+    return isValid;
+}
+
+function clearErrors() {
+    document.getElementById("firstNameError").textContent = "";
+    document.getElementById("lastNameError").textContent = "";
+    document.getElementById("emailError").textContent = "";
+    document.getElementById("mobileError").textContent = "";
+    document.getElementById("passwordError").textContent = "";
+    document.getElementById("addressError").textContent = "";
+}
+</script>
+
+</body>
+</html>

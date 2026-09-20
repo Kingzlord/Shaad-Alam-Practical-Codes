@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset = "UTF-8">
+	<meta name = "viewport" content="width=device-width, initial-scale=1.0">
+	<title>Fibo and Rev</title>
+	<style>
+		span{
+			color:red;
+			font-size:15px;
+		}
+	</style>
+</head>
+
+<body>
+	<form onsubmit="return validate()">
+	<label>First Name:</label>
+	<input type="text" id="first">
+	<span id="fnameError"></span><br><br>
+	
+	<label>Last Name:</label>
+	<input type="text" id="second">
+	<span id="snameError"></span><br><br>
+	
+	<label>Email:</label>
+	<input type="text" id="email">
+	<span id="emailError"></span><br><br>
+	
+	<label>Password:</label>
+	<input type="text" id="pass">
+	<span id="passError"></span><br><br>
+
+	<label>Phone Number:</label>
+	<input type="text" id="phoneNum">
+	<span id="phoneError"></span><br><br>
+
+	<label>Address:</label>
+	<textarea type="text" id="add"></textarea>
+	<span id="addError"></span><br><br>
+
+	<input type="submit">
+	</form>
+</body>
+<script>
+	
+	function validate(){
+		let isValid = true;
+
+		clearErrors();
+		let f = document.getElementById("first").value;
+		let namePat = /^[a-zA-Z]+$/;
+		if(!f.match(namePat)){
+			document.getElementById("fnameError").textContent = "Please enter valid First Nname";
+			isValid = false;
+		}
+		let n = document.getElementById("second").value;
+		if(!n.match(namePat)){
+			document.getElementById("snameError").textContent = "Please enter valid Second Nname";
+			isValid = false;
+		}
+		let e = document.getElementById("email").value;
+		let emailPat = /^\S+@\S+\.\S+$/;
+		if(!e.match(emailPat)){
+			document.getElementById("emailError").textContent = "Please enter valid email";
+			isValid = false;
+		}
+		let p = document.getElementById("pass").value;
+		let passPat = /^(?=.*\d)(?=.*[!@#$%^&*]).{6,}$/;
+		if(!p.match(passPat)){
+			document.getElementById("passError").textContent = "Password must be of atleast 6 digit with atleast one number and letter";
+			isValid = false;
+		}
+		let ph = document.getElementById("phoneNum").value;
+		let phonePat = /^\d{10}$/;
+		if(!ph.match(phonePat)){
+			document.getElementById("phoneError").textContent = "Phone number must include 10 digits and only numbers";
+			isValid = false;
+		}
+		let add = document.getElementById("add").value;
+		if(add.trim()===""){
+			document.getElementById("addError").textContent = "Addres input shouldn't be empty";
+			isValid = false;
+		}
+		return isValid;
+	}
+	
+	function clearErrors(){
+		document.getElementById("fnameError").textContent = "";
+		document.getElementById("snameError").textContent = "";
+		document.getElementById("emailError").textContent = "";
+		document.getElementById("passError").textContent = "";
+		document.getElementById("phoneError").textContent = "";
+		document.getElementById("addError").textContent = "";
+	}
+</script>
+</html>

@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+    
+    <head>
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <title>jQuery Animation Effects</title>
+        <style type="text/css">
+            textarea{
+                display: block;
+                margin: 1em 0;
+            }
+        </style>
+        <script>
+        $(document).ready(function(){   
+            $("#textarea").on("input", function(){
+                let remaining = 15 - $(this).val().length;
+                console.log("typing");
+
+                $("#rchars").text(remaining);
+            });
+        });
+</script>
+    </head>
+    <body>
+        <form>
+            <label>Maximum 15 characters</label>
+            <textarea id="textarea" maxlength=15></textarea>
+            <span id="rchars">15</span> Character(s) Remaining
+        </form>
+    </body>
+</html>

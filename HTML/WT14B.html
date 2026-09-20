@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <title>AJAX Async Requests</title>
+        <style>
+            body{
+                text-align: center;
+                background-color: #2c2c2c;
+            }
+            h1{
+                padding: 2px;
+                color: green;
+                font-size: 3rem;
+            }
+            h2{
+                font-size: 2rem;
+                color: aliceblue;
+            }
+            div{
+                font-weight: bold;
+                color: aliceblue;
+              
+            }
+        </style>
+    </head>
+    <body>
+        <h1>GeekforGeeks</h1>
+        <h2>AJAX Async Requests</h2>
+        <div id="response"></div>
+        <button onclick="SendAsync()">Async Request</button>
+        <button onclick="SendSync()">Sync Request</button>
+        <script>
+            function SendAsync(){
+                document.getElementById("response").innerText="";
+                var request=new XMLHttpRequest();
+                request.open('GET','https://jsonplaceholder.typicode.com/todos/1',true);
+                request.onload=()=>{
+                    document.getElementById("response").innerText+="Response:\n" + request.responseText;
+                }
+                request.send();
+                document.getElementById("response").innerText+="\n\n Other Task Executed \n\n";
+            }
+            function SendSync(){
+                document.getElementById("response").innerText="";
+                var request=new XMLHttpRequest();
+                request.open('GET','https://jsonplaceholder.typicode.com/todos/1',false);
+                request.onload=()=>{
+                    document.getElementById("response").innerText+="Response:\n" + request.responseText;
+                }
+                request.send();
+                document.getElementById("response").innerText+="\n\n Other Task Executed \n\n";
+            }
+            </script>
+        </body>
+</html>

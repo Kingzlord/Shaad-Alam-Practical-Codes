@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Pop-Up Boxes</title>
+    <style>
+        .container{
+            margin-top: 50px;
+            text-align: center;
+        }
+        button{
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        input[type="text"]{
+            font-size: 16px;
+            padding: 10px;
+            width: 200px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>JavaScript Pop-Up Boxes and Functions</h2>
+        <!--a) Display Date-->
+        <button onclick="displayDate()">Display Date</button>
+        <br>
+        <input type="text" id="dateTextbox" readonly><br><br>
+        <!--b) Multiplication Table-->
+        <button onclick="showMultiplicationTable()">Display Multiplication Table</button>
+        <!--c) Sum of Numbers-->
+        <button onclick="sumOfNumbers()">Calculate Sum of Numbers</button>
+    </div>
+
+    <script>
+        //a) Display Date in Textbox
+        function displayDate(){
+            const currentDate=new Date();//Get the current date
+            document.getElementById("dateTextbox").value=currentDate.toDateString();//Display it in the text Box
+        }
+
+        //b) Display Multiplication Table
+        function showMultiplicationTable(){
+            const n=prompt("Enter a number to display its multiplication table: ");
+            if(n!==null && !isNaN(n) && n!==""){
+                let table="";
+                for(let i=1;i<=10;i++){
+                    table += `${n} x ${i} = ${n*i}\n`;//Generate multiplication table
+                }
+                alert(table);//Display the multiplication table in an alert box
+            }else{
+                alert("Please enter a valid number.");
+            }
+        }
+
+        //c) Sum of Numbers
+        function sumOfNumbers(){
+            let sum=0;
+            let n=prompt("Enter a number to start the sum: ");
+            if(n!==null && !isNaN(n) && n!==""){
+                sum+= parseInt(n);//Add the first number to sum
+                let addAnother=true;
+                while(addAnother){
+                    addAnother=confirm("Do you want to add another number?");
+                    if(addAnother){
+                        let nextNumber=prompt("Enter another number: ");
+                        if(nextNumber!==null && !isNaN(nextNumber) && nextNumber!==""){
+                            sum += parseInt(nextNumber);//Add the next number to sum
+                        }else{
+                            alert("Please enter a valid number.");
+                            addAnother=false;//Stop the loop if invalid input
+                        }
+                    }
+                }
+                alert("The total sum is:"+sum);//Display the final sum in an alert box
+            }else{
+                alert("Please enter a valid starting number.");
+            }
+        }
+    </script>
+</body>
+</html>

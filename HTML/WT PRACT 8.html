@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration form Validation</title>
+    <style>
+        .error{
+            color: red;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Registration Form</h2>
+    <form id="registrationForm" onsubmit="return validateForm()">
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" name="firstName">
+        <span id="firstNameError" class="error"></span><br><br>
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastName" name="lastName">
+        <span id="lastNameError" class="error"></span><br><br>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email">
+        <span id="emailError" class="error"></span><br><br> 
+        <label for="mobile">Mobile Number:</label>
+        <input type="text" id="mobile" name="mobile">
+        <span id="mobileError" class="error"></span><br><br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password">
+        <span id="passwordError" class="error"></span><br><br>
+        <label for="address">Address:</label>
+        <textarea id="address" name="address"></textarea>
+        <span id="addressError" class="error"></span><br><br>
+        <input type="submit" value="Register">
+    </form>
+    <script>
+        function validateForm(){
+        let isValid=true;
+        //clear previous error message
+        clearErrors();
+        //validate first name
+        let firstName=document.getElementById("firstName").value;
+        if(!firstName.match(/^[a-zA-Z]+$/)){
+            document.getElementById("firstNameError").textContent="First Name must contain only letters.";
+            isValid=false;
+        }
+        //validate last name
+        let lastName=document.getElementById("lastName").value;
+        if(!lastName.match(/^[a-zA-Z]+$/)){
+            document.getElementById("lastNameError").textContent="Last Name must contain only letters.";
+            isValid=false;
+        }
+        //validate email
+        let email=document.getElementById("email").value;
+        let emailPattern=/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+[a-zA-Z]{2,6}$/;
+        if(!email.match(emailPattern)){
+            document.getElementById("emailError").textContent="Please enter a valid email address.";
+            isValid=false;
+        }
+        //validate mobile number
+        let mobile=document.getElementById("mobile").value;
+        let mobilePattern=/^[0-9]{10}$/;
+        if(!mobile.match(mobilePattern)){
+            document.getElementById("mobileError").textContent="Mobile number must be 10 digits.";
+            isValid=false;
+        }
+        //validate password
+        let password=document.getElementById("password").value;
+        let passwordPattern=/^(?=.*[!@#$%^&*])[A-Za-z\d@$!%*?&]{6,}$/;
+        if(!password.match(passwordPattern)){
+            document.getElementById("passwordError").textContent="Password must be atleast 6 characters,include at least one number and one special character.";
+            isValid=false;
+        }
+        //validate address
+        let address=document.getElementById("address").value;
+        if(address.trim()===""){
+            document.getElementById("addressError").textContent="Address cannot be empty.";
+            isValid=false;
+        }
+        return isValid;
+        }
+        function clearErrors(){
+            document.getElementById("firstNameError").textContent="";
+            document.getElementById("lastNameError").textContent="";
+            document.getElementById("emailError").textContent="";
+            document.getElementById("mobileError").textContent="";
+            document.getElementById("passwordError").textContent="";
+            document.getElementById("addressError").textContent="";
+            }
+    </script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset = "UTF-8">
+	<meta name = "viewport" content="width=device-width, initial-scale=1.0">
+	<title>Fibo and Rev</title>
+	<style>
+		body{
+			font-size:20px;
+			text-align:center;
+			padding:1px;
+			margin:20px;
+		}
+		button{
+			font-size:21px;
+		}
+		input{
+			margin:20px;
+			width:240px;
+		}
+		textarea{
+			width:500px;
+			height:100px;
+			margin:20px;
+			text-align:center;
+		}
+		hr{
+			width:150vh;
+			border:solid 1px;
+		}
+	</style>
+</head>
+
+<body>
+	<button onclick="genFibo()">Generate Fibonacci series</button>
+	<br><br>
+	<input type="text" id="fibo" placeholder="Enter a number to generate a fibo series">	
+	<br>
+	<textarea id="fiboResult" readonly></textarea>
+	<hr>
+	<br>
+	<button onclick="revNum()">Reverse</button>
+	<br><br>
+	<input type="text" id="rev" placeholder="Enter a number">
+	<br>
+	<textarea id="revResult" readonly></textarea>
+</body>
+<script>
+	function genFibo(){
+		const n = parseInt(document.getElementById("fibo").value);
+		console.log(n)
+		let fib = []
+		let a=0,b=1;
+		for(let i=1; i<=n; i++){
+			fib.push(a)
+			let temp=a;
+			a=b
+			b= temp+b;
+		}
+		document.getElementById("fiboResult").value = fib.join(",");
+		console.log(fib.join(","))
+	}
+
+	function revNum(){
+		const n = document.getElementById("rev").value;
+		const rev = n.split("").reverse().join("");
+		document.getElementById("revResult").value=rev;
+	}
+</script>
+
+</html>

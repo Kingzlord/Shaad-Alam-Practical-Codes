@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset = "UTF-8">
+	<meta name = "viewport" content="width=device-width, initial-scale=1.0">
+	<title>Number to words</title>
+</head>
+<body>
+	<h1>Convert number to words</h1>
+	<input type="text" id="n" placeholder="Enter any number of max 3 digits">
+	<p id="show"></p>
+	<button onclick="convert()">Convert</button>
+</body>
+<script>
+	function numToWord(num){
+		const once=['',' One', ' Two', ' Three', ' Four', ' Five', ' Six' ,' Seven', ' Eight', ' Nine'];
+		const teens=['',' Eleven', ' Twelve', ' Thirteen', ' Fourteen', ' Fifteen', ' Sixteen', ' Seventeen', 'Eighteen', ' Nineteen'];
+		const tens=['',' Ten',' Twenty', ' Thirty', ' Fourt', ' Fifty', ' Sixty', ' Seventy', ' Eighty', ' Ninety'];
+		const hundreds=['',' One', ' Two', ' Three', ' Four', ' Five', ' Six' ,' Seven', ' Eight', ' Nine'];
+		if (num==0)return 'zero';
+		if(num<10) return once[num];
+		if(num>10 && num<20) return teens[num-10];
+		if(num<100) return tens[Math.floor(num/10)]+(num%10!==0?once[num%10]:"");
+		if(num<1000) return hundreds[Math.floor(num/100)]+" Hundred"+(num%100!==0?" and"+numToWord(num%100):"");
+		
+		return "";
+	}
+	function convert(){
+		const num = parseInt(document.getElementById("n").value);
+		const op = document.getElementById("show");
+		op.textContent = numToWord(num);
+	}
+	
+</script>
+</html>

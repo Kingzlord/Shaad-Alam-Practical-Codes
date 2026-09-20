@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Builder Form</title>
+    <style>
+        body{
+            font-family: 'Times New Roman', Times, serif;
+            background-color: #000000;
+            margin: 0px;
+            padding: 0px;
+        }
+        .container{
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #525151;
+            padding: 20px;
+            color: #ffffff;
+            box-shadow: 0px 4px 8px rgba(255, 255, 255, 0.736);
+            border-radius: 8px;
+        }
+        h1{
+            text-align: center;
+            color: #c6bebe;
+        }
+        h3{
+            text-align: center;
+            color: #aea8a8;
+        }
+        .section-title{
+            font-size: 1.2cm;
+            margin-bottom: 10px;
+            color: #e9d2d2;
+        }
+        label{
+            display: block;
+            margin: 8px 0 5px;
+        }
+        input,textarea,select{
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 4px;
+            box-sizing: border-box;
+            background-color: #786f6f;
+            color: white;
+        }
+        button{
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #ffffff;
+            color: rgb(0, 0, 0);
+            border: #ffffff;
+            border-width: 4px;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        button:hover{
+            background-color: #000000;
+        }
+        .form-section{
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Resume</h1>
+    <h3>Please enter your following details</h3>
+    <!-- Personal Information -->
+    <div class="container">
+        <div class="form-section">
+            <div class="section-title">Personal Information:-</div>
+            <label for="firstname">First Name:</label>
+            <input type="text" id="firstname" class="firstname" required>
+            <label for="middlename">Middle Name:</label>
+            <input type="text" name="middlename" id="middlename" required>
+            <label for="lastname">Last Name:</label>
+            <input type="text" id="lastname" class="lastname" required>
+            <label for="Email">Email Address</label>
+            <input type="email" name="Email" id="Email" required>
+            <label for="Phone">Phone Number:</label>
+            <input type="tel" name="Phone" id="Phone" required>
+            <label for="Address">Address:</label>
+            <textarea style="border-radius: 4px; border-color: black; border-width: 2px;"
+            name="Address" id="Address" rows="4" required></textarea>
+        </div>
+        <!-- Education Section -->
+        <div class="form-section">
+            <div class="section-title">Education:-</div>
+            <label for="degree">Degree/Qualtification</label>
+            <input type="text" id="degree" class="degree" required>
+            <label for="university">University/Insititute</label>
+            <input type="text" id="university" class="university" required> 
+            <label for="gradyear">Graduation Year</label>
+            <input type="number" id="gradyear" class="gradyear" required>
+        </div>
+        <!-- Work Experience -->
+        <div class="form-section">
+            <div class="section-title">Work Experience:</div>
+            <label for="jobtitle">Job Title:</label>
+            <input type="text" name="jobtitle" id="j    obtitle" required>
+            <label for="company">company Name:</label>
+            <input type="text" name="company" id="company" required>
+            <label for="startdate">Start Date:</label>
+            <input type="date" name="startdate" id="startdate" required>
+            <label for="enddate">End Date:</label>
+            <input type="date" name="enddate" id="enddate" required>
+            <label for="jobdesc">Job Desciption:</label>
+            <input type="date" name="jobdesc" id="jobdesc" required>
+        </div>
+        <!-- Skills Section -->
+        <div class="form-section">
+            <div class="section-title">Skills:-</div>
+            <label for="Skills">List your skills (separate by comma ',')</label>
+            <input type="text" id="Skills" class="Skills">
+        </div>
+        <!-- Language Sections -->
+        <div class="form-section">
+            <div class="section-title">Languages:-</div>
+            <label for="Languages">Languages you speak</label>
+            <input type="text" name="Languages" id="Languages" required>
+        </div>
+        <button type="submit">Submit Resume... but it will go nowhere</button>
+    </div>
+</body>
+</html>

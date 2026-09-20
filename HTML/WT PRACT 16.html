@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Objects Demo</title>
+</head>
+<body>
+
+    <h2>String Example</h2>
+    <p id="str"></p>        
+
+    <h2>RegExp Example</h2>
+    <p id="regexp"></p>
+
+    <h2>Math Example</h2>
+    <p id="math"></p>
+
+    <h2>Date Example</h2>
+    <p id="date"></p>
+
+    <script>
+        //String object example
+        const str="Hello, World!";
+        document.getElementById('str').innerText=`String:${str},
+        Length:${str.length},Uppercase:${str.toUpperCase()}`;
+
+        //RegExp object example
+        const pattern=/word/i;
+        document.getElementById('regexp').innerText=`Pattern found:
+        ${pattern.test(str)}`;
+
+        //Math object example
+        document.getElementById('math').innerText=`Pi:
+        ${Math.PI(str)},Random:${Math.random().toFixed(2)}`;
+
+        //Date object example
+        document.getElementById('date').innerText=`Current Date:${new Date().toLocaleString()}`;
+    </script>
+    
+
+<!-- 16 B -->
+
+    <h2>Window Object</h2>
+    <p id="window"></p>
+    <h2>Navigator Object</h2>
+    <p id="navigator"></p>
+    <h2>History Object</h2>
+    <p id="history"></p>
+    <h2>Window Object</h2>
+    <p id="window"></p>
+    <h2>Location Object</h2>
+    <p id="location"></p>
+    <h2>Document Object</h2>
+    <p id="document"></p>
+
+    <script>
+        // Window Object Example
+        document.getElementById('window').innerText=`Window Size:${window.innerWidth}x${window.innerHeight}`;
+
+        // Navigator Object Example
+        document.getElementById('navigator').innerText=`Browser:${navigator.appName}, Version:${navigator.appVersion}`;
+
+        // History Object Example
+        document.getElementById('history').innerText=`History Length:${history.length}`;
+
+        // Location Object Example
+        document.getElementById('location').innerText=`Current URL:${location.href}`;
+
+        // Document Object Example
+        document.getElementById('document').innerText=`Page Title:${document.title}`;
+    </script>
+    
+    <!-- 16 C -->
+    <h2>Set Cookie</h2>
+    <button onclick="setCookie()">Set Cookie</button>
+
+    <h2>Get Cookie</h2>
+    <button onclick="getCookie()">Get Cookie</button>
+    <p id="cookie-output"></p>
+
+    <h2>Delete Cookie</h2>
+    <button onclick="deleteCookie()">Delete Cookie</button>
+
+    <script>
+        function setCookie(){
+            document.cookie="user=John Banega don;path=/;expires="+new Date(new Date().getTime()+3600*1000).toUTCString(); //Expiresin 1 hour
+            alert("Cookie set!")
+            console.log("cookie set");
+        }
+
+        function getCookie(){
+            const cookie=document.cookie.split(';');
+            let cookieValue=cookie.find(cookie=>cookie.trim().startsWith('user='));
+            document.getElementById('cookie-output').innerText=cookieValue ? cookieValue.split('=')[1]:"Cookie not found";
+        }
+
+        function deleteCookie(){
+            document.cookie="user=;path=/;expires=Thu,01 Jan 1970 00:00:00 UTC";//Expire immediately
+            alert("Cookie deleted!");
+        }
+    </script>
+</body>
+</html> 

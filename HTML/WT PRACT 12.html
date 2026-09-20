@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number to Words</title>
+    <script>
+        function numToWords(num){
+            const ones=[""," One"," Two"," Three"," Four"," Five"," Six"," Seven"," Eight"," Nine"];
+            const teens=[""," Eleven"," Twelve"," Thirteen"," Fourteen"," Fifteen"," Sixteen"," Seventeen"," Eighteen"," Nineteen"];
+            const tens=[""," Ten"," Twenty"," Thirty"," Forty"," Fifty"," Sixty"," Seventy"," Eighty"," Ninety"];
+            const hundreds=["","Hundred","Two Hundred","Three Hundred","Four Hundred","Five Hundred"," Six Hundred"," Seven Hundred"," Eight Hundred"," Nine Hundred"];
+            
+            if(num==0)return "zero";
+            if(num<10)return ones[num];
+            if(num>10 && num<20)return teens[num-10];
+            if(num<100)return tens[Math.floor(num/10)]+(num%10!==0?ones[num%10]:"");
+            if(num<1000)return hundreds[Math.floor(num/100)]+(num%100!==0?""+" and"+numToWords(num%100):"");
+
+            return"";
+        }
+
+        function convert(){
+            const input=document.getElementById("numberInput").value;
+            const output=document.getElementById("output");
+            const num=parseInt(input);
+
+            if(isNaN(num) || num<0 || num>999 || input.length>3){
+                output.textContent="Invalid input. Please enter a number between 0 and 999. "
+            }else{
+                output.textContent=numToWords(num);
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Number to Words Converter</h1>
+    <input type="text" id="numberInput" placeholder="Enter a number (0-999)">
+    <button onclick="convert()">Convert</button>
+    <p id="output"></p>
+</body>
+</html>

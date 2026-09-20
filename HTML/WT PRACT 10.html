@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Mathematical Operations</title>
+    <style>
+        .container{
+            margin-top: 50px;
+            text-align: center;
+        }
+        button{
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        input[type="text"]{
+            font-size: 16px;
+            padding: 10px;
+            width: 200px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <h2>JavaScript Mathematical Operations</h2>
+
+        <!--a) Fibonacci Series -->
+        <button onclick="generateFibonacci()">Generate Fibonacci Series</button><br><br>
+        <input type="number" id="fibonacciInput" placeholder="Enter number of terms"><br><br>
+        <textarea id="fibonacciResult" rows="4" cols="50" readonly></textarea><br><br>
+
+        <!--b) Reverse of a Number-->
+        <button onclick="reverseNumber()">Reverse the Number</button><br><br>
+        <input type="number" id="reverseInput" placeholder="Enter a number"><br><br>
+        <input type="text" id="reverseResult" readonly><br><br>
+    </div>
+    <script>
+        //a) Fibonacci Series
+        function generateFibonacci(){
+            const n=parseInt(document.getElementById("fibonacciInput").value);
+//Number of terms
+            if(isNaN(n) || n<=0){
+                alert("Please enter a positive integer.");
+                return;
+            }
+
+            let fib=[]
+            let a=0,b=1;
+            for(let i=0;i<n;i++){
+                fib.push(a)
+                let temp=a;
+                a=b;
+                b=temp+b;
+            }
+            document.getElementById("fibonacciResult").value=fib.
+            join(",");
+        }
+
+        //b) Reverse of a Number
+        function reverseNumber(){
+            const num=document.getElementById("reverseInput").value;
+            if(num==="" || isNaN(num)){
+                alert("Please enter a valid number.");
+                return;
+            }
+            const reversed=num.split("").reverse().join("");//Reverse the string representation of the number
+            document.getElementById("reverseResult").value=reversed;
+        }
+    </script>
+</body>
+</html>

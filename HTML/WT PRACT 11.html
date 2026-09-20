@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extract Digits</title>
+</head>
+<body background="green">
+    
+    <h2>Extract Digits from Input</h2>
+    <input type="text" id="inputText" placeholder="Enter a number">
+    <button onclick="extractDigits()">Extract Digits</button>
+    <p id="output"></p>
+
+    <script>
+        function extractDigits(){
+            const input=document.getElementById('inputText').value;//Get the input value
+            const digits=input.split('').filter(char=> !isNaN(char) && char!=='');//Extract only digits
+            const output=digits.join('   ');//Join digits with 3 spaces
+            document.getElementById('output').innerText=output;//Display output
+        }
+    </script>
+</body>
+</html>

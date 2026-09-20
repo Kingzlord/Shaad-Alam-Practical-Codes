@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset = "UTF-8">
+	<meta name = "viewport" content="width=device-width, initial-scale=1.0">
+	<title>Something else</title>
+	<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+	<style>
+		body{
+			background-color: black;
+			color: white;
+			font-size: 20px;
+			text-align: center;
+		}
+	</style>
+	<script>
+		$(document).ready(function(){
+			$("#textarea").on("input", function(){
+				let remaining = 15 - $(this).val().length;
+				console.log("typing");
+				$("#rchars").text(remaining);
+			});
+		});
+	</script>
+<body>
+	<h1>Bring your fucking mouse here </h1>
+	<textarea id="textarea" maxlength=15></textarea>
+	<spand id="rchars">15</span> Character(s) remaining
+</body>
+</html>

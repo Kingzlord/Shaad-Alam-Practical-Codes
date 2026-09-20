@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/css" href="Rules.css"?>
+<books>
+    <heading>Welcome to GeekforGeeks</heading>
+    <book>
+        <title>Title-:Web Programming</title>
+        <author>Author-:Chrisbates</author>
+        <publisher>Publisher-:Wiley</publisher> 
+        <edition>Edition-:3</edition>
+        <price>Price-:300</price>
+    </book>
+    <br/><br/>
+    <book>
+        <title>Title-:Internet World-Wide-Web</title>
+        <author>Author-:Ditel</author>
+        <publisher>Publisher-:Pearson</publisher> 
+        <edition>Edition-:3</edition>
+        <price>Price-:400</price>   
+    </book>
+    <br/><br/>
+    <book>
+        <title>Title-:Computer Networks</title>
+        <author>Author-:Foruozan</author>
+        <publisher>Publisher-:Mc Graw Hill</publisher> 
+        <edition>Edition-:5</edition>
+        <price>Price-:700</price>   
+    </book>
+    <br/><br/>
+    <book>
+        <title>Title-:DBMS Concepts</title>
+        <author>Author-:Navath</author>
+        <publisher>Publisher-:Oxford</publisher> 
+        <edition>Edition-:3</edition>
+        <price>Price-:600</price>   
+    </book>
+    <br/><br/>
+    <book>
+        <title>Title-:Linux Programming</title>
+        <author>Author-:Shubhitab Das</author>
+        <publisher>Publisher-:Oxford</publisher> 
+        <edition>Edition-:8</edition>
+        <price>Price-:300</price>   
+    </book>
+    <br/><br/>
+</books>
