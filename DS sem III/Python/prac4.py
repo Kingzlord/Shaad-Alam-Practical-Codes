@@ -2,7 +2,7 @@
 """ 
 * Definition of Single Linked list - rule side
 * Operations - rule side
-* Algorithm for traverasal o flinked list- blang page
+* Algorithm for traverasal of linked list- blank page
 * Code- rule side
 *Output - blank page
 """
