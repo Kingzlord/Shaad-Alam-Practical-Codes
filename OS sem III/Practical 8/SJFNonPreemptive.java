@@ -56,8 +56,8 @@ public class SJFNonPreemptive {
             Process p = processes[shortest];
             currentTime += p.burstTime;
             p.completionTime = currentTime;
-            p.turnaroundTime = p.completionTime = p.arrivalTime;
-            p.waitingTime = p.turnaroundTime = p.burstTime;
+            p.turnaroundTime = p.completionTime - p.arrivalTime;
+            p.waitingTime = p.turnaroundTime - p.burstTime;
             p.completed = true;
             completed++;
             totalWaitingTime += p.waitingTime;
