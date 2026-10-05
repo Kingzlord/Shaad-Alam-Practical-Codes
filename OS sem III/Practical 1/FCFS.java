@@ -1,6 +1,8 @@
-import java.util.*;
+
+import java.util.Scanner;
 
 public class FCFS {
+
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
@@ -32,10 +34,10 @@ public class FCFS {
 
         double totalWT = 0, totalTAT = 0;
 
-        System.out.println("\n---------------------------------------------");
+        System.out.println("\n--------------------------------------------------");
         System.out.printf("%-10s %-12s %-14s %-15s\n",
                 "Process", "Burst", "Waiting", "Turnaround");
-        System.out.println("---------------------------------------------");
+        System.out.println("--------------------------------------------------");
 
         for (int i = 0; i < n; i++) {
             System.out.printf("%-10s %-12d %-14d %-15d\n",
@@ -45,7 +47,7 @@ public class FCFS {
             totalTAT += tat[i];
         }
 
-        System.out.println("---------------------------------------------");
+        System.out.println("--------------------------------------------------");
 
         System.out.printf("Average Waiting Time = %.2f\n", totalWT / n);
         System.out.printf("Average Turnaround Time = %.2f\n", totalTAT / n);

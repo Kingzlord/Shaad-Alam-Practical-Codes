@@ -2,7 +2,9 @@ notes/
 pdf/
 png/
 .vscode/
+revision/
 
-.class
+*.class
+
 
 revision.*
