@@ -6,6 +6,7 @@
 * Code- rule side
 *Output - blank page
 """
+
 class node:
     def __init__(self, data):
         self.data = data
@@ -15,7 +16,6 @@ class node:
 def insert(head,data):
     new_node= node(data)
     new_node.next = head
-    print(data)
     return new_node
 
 def traverse(head):
@@ -29,9 +29,6 @@ def traverse(head):
 
 def insert_at_end(head, data):
     new_node = node(data)
-    if head is None:
-        print("Head cannot be NONE")
-        return
     current = head
     while current.next:
         current = current.next
@@ -40,8 +37,7 @@ def insert_at_end(head, data):
     
 
 def insert_at_beginning(head,data):
-    if head is None:
-        print("No head given to insert")
+
     new_node = node(data)
     current = head
     new_node.next = current
