@@ -1,5 +1,5 @@
 #WAP for ADT:
-from abc import ABC, abstractmethod
+from abc import ABC, abstractmethod 
 class StackADT(ABC):
     @abstractmethod
     def push(self,item):
