@@ -10,14 +10,14 @@ def balance_check(expression):
             if(len(stack)>0) and (opening[pos]==stack[len(stack)-1]):
                 stack.pop()
             else:
-                return False
+                return ("Expression is balanced")
     if len(stack)==0:
-        return (True)
+        return ("Expression is balanced")
     else:
-        return (False)
-print(balance_check('[{()}]'))
-print(balance_check('[{(})]'))
+        return ("Expression is balanced")
+exp = (input("Enter the expression: "))
 
+print(balance_check(exp))
 
 
 
