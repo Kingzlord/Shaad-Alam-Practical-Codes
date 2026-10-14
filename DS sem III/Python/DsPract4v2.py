@@ -1,33 +1,26 @@
 #This is a short code a lot of things are removed
-
 class node:
     def __init__(self,data):
         self.data = data
         self.next = None
-
-
 class LinkedList:
     def __init__(self):
         self.head = None
-
     def insert_at_beg(self,data):
         newnode = node(data)
 
         newnode.next = self.head
         self.head = newnode
-
     def insert_at_end(self,data):
         newnode = node(data)
 
         if self.head == None:
             self.head = newnode
             return
-
         curent = self.head
         while curent.next:
             curent = curent.next
-        curent.next = newnode
-        
+        curent.next = newnode    
     def insert_at_specific_node(self,data,pos):
         newnode = node(data)
         curent = self.head
@@ -41,17 +34,11 @@ class LinkedList:
 
         newnode.next = curent.next
         curent.next = newnode
-
-
     def delete_at_beg( self ):
         self.head = self.head.next
 
     def delete_at_end(self):
-        curent = self.head
-
-
-        
-        
+        curent = self.head   
         while curent.next:
             curent = curent.next
         curent.next = None
@@ -66,7 +53,6 @@ class LinkedList:
             curent = curent.next
 
         curent.next = curent.next.next
-
     def search(self, data):
         curent = self.head
 
@@ -82,7 +68,6 @@ class LinkedList:
 
         print("Node not found")
 
-
     def rev(self):
         prev = None
         curent = self.head
@@ -97,7 +82,6 @@ class LinkedList:
 
         print("Linked List REV")
 
-
     def display(self):
         curent = self.head
 
@@ -107,8 +91,6 @@ class LinkedList:
             curent = curent.next
 
         print()
-
-
 
 print("Enter initial length of LL",end="")
 l = LinkedList()
