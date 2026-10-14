@@ -37,14 +37,16 @@ class Stack(StackADT):
 
 if __name__=="__main__":
     stack=Stack()
-print("Pushing 1, 2, 3, 4, 5, 6, 7 to stack.")
-stack.push(1)
-stack.push(2)
-stack.push(3)
-stack.push(4)
-stack.push(5)
-stack.push(6)
-stack.push(7)
+n = int(input("Enter size of Stack: "))
+for i in range(n):
+    stack.push(int(input("Enter elemnt: ")))
+    
+# stack.push(2)
+# stack.push(3)
+# stack.push(4)
+# stack.push(5)
+# stack.push(6)
+# stack.push(7)
 print("Top element is:",stack.peek())
 print("Stack size:",stack.size())
 print("Popped:",stack.pop())
