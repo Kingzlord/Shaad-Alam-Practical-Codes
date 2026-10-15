@@ -1,6 +1,6 @@
-//WAP to define yuser-defined exceptions and raise them as oer the requirements
+//WAP to define user-defined exceptions and raise them as per the requirements
 
-import java.util.*;
+import java.util.Scanner;
 
 public class Prac11 extends Exception {
 
