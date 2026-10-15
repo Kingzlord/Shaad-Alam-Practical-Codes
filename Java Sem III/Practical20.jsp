@@ -16,7 +16,7 @@
             int a = 34;
             int b = 21;
         %>
-        <%
+        <%!
             void addition(int a, int b){
                 return a+b;
             }
