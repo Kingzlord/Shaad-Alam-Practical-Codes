@@ -20,6 +20,5 @@ q = Queue(n)
 for i in range(n):
     q.Enqueue(int(input("Enter data: ")))
 q.printQueue()
-
 print("Dequeued: ",q.Dequeue())
 q.printQueue()

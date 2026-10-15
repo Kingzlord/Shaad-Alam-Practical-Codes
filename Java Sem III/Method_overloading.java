@@ -7,7 +7,6 @@ public class Method_overloading {
     }
 
     static void add(int a, int b, int c) {
-
         System.out.println("Addition of " + a + "+" + b + "+" + c + "=" + (a + b + c));
     }
 

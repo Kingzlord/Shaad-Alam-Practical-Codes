@@ -1,34 +1,38 @@
 
-import java.util.*;
+import java.util.HashSet;
+import java.util.Scanner;
+import java.util.Set;
+import java.util.SortedSet;
+import java.util.TreeSet;
 
 public class Pract10B {
 
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
-        Set<String> obj = new HashSet<String>();
+        Set<String> set = new HashSet<>();
 
         System.out.println("Enter 5 programming languages:");
 
         for (int i = 0; i < 5; i++) {
             String x = sc.nextLine();
-            obj.add(x);
+            set.add(x);
         }
 
-        System.out.println(obj);
-        System.out.println("Size of Set: " + obj.size());
+        System.out.println(set);
+        System.out.println("Size of Set: " + set.size());
 
-        SortedSet<String> obj1 = new TreeSet<String>(obj);
+        SortedSet<String> set1 = new TreeSet<String>(set);
 
         System.out.println("The sorted set is:");
-        System.out.println(obj1);
+        System.out.println(set1);
 
         System.out.println("Enter element to be removed:");
         String y = sc.nextLine();
 
-        obj.remove(y);
+        set.remove(y);
 
-        System.out.println("Set after remove: " + obj);
+        System.out.println("Set after remove: " + set);
 
         sc.close();
     }

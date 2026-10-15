@@ -4,12 +4,20 @@ import java.util.Scanner;
 class pattern {
 
     public static void main(String[] var0) {
-        Scanner var1 = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
         System.out.println("Enter a number: ");
-        int var2 = var1.nextInt();
+        int n = sc.nextInt();
 
-        for (int var3 = var2; var3 > 0; --var3) {
-            for (int var4 = 0; var4 < var3; ++var4) {
+        for (int i = n; i > 0; i--) {
+            for (int j = 0; j < i; j++) {
+                System.out.print("*");
+            }
+
+            System.out.println();
+        }
+
+        for (int i = 0; i <= n; i++) {
+            for (int j = 0; j < i; j++) {
                 System.out.print("*");
             }
 

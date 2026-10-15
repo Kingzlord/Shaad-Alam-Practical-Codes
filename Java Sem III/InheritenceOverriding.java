@@ -9,7 +9,7 @@ class Dept {
         System.out.println("********************************");
         System.out.print("Enter Dept ID: ");
         Scanner sc = new Scanner(System.in);
-        int deptId = sc.nextInt();
+        deptId = sc.nextInt();
     }
 
 }

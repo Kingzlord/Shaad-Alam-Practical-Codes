@@ -1,16 +1,24 @@
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
 
 public class Pract10A {
 
     public static void main(String[] args) {
 
         List<String> obj = new ArrayList<>();
+        System.out.println("Enter size of list");
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
 
-        obj.add("Ananya");
-        obj.add("Tanisha");
-        obj.add("Ali");
-        obj.add("Shaad");
+        sc.nextLine();
+
+        for (int i = 1; i <= n; i++) {
+            System.out.println("Enter string in list: ");
+            String s = sc.nextLine();
+            obj.add(s);
+        }
 
         System.out.println("Elements of list are: " + obj);
 
