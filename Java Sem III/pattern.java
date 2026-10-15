@@ -10,6 +10,7 @@ class pattern {
 
         for (int i = n; i > 0; i--) {
             for (int j = 0; j < i; j++) {
+<<<<<<< HEAD
                 System.out.print("*");
             }
 
@@ -18,6 +19,8 @@ class pattern {
 
         for (int i = 0; i <= n; i++) {
             for (int j = 0; j < i; j++) {
+=======
+>>>>>>> 2e2091a8de0b1f9b14fee0a73ff0ed3f5e294da7
                 System.out.print("*");
             }
 
