@@ -1,36 +1,38 @@
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
 
 public class Pract10C {
 
     public static void main(String[] args) {
 
-        Map<String, String> obj = new HashMap<String, String>();
+        Map<String, String> map = new HashMap<>();
 
-        obj.put("ID", "528");
-        obj.put("Age", "19");
-        obj.put("Salary", "50,000");
-        obj.put("Name", "Harshit");
+        map.put("ID", "528");
+        map.put("Age", "19");
+        map.put("Salary", "50,000");
+        map.put("Name", "Harshit");
 
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("Map Elements: " + obj);
+        System.out.println("Map Elements: " + map);
 
-        System.out.println("No. of Elements in Map: " + obj.size());
+        System.out.println("No. of Elements in Map: " + map.size());
 
-        System.out.println("Element Removed: " + obj.remove("Age"));
+        System.out.println("Element Removed: " + map.remove("Age"));
 
-        System.out.println("After Removal: " + obj);
+        System.out.println("After Removal: " + map);
 
-        System.out.println(obj.values());
+        System.out.println(map.values());
 
-        System.out.println(obj.keySet());
+        System.out.println(map.keySet());
 
-        System.out.println("If Map is Empty: " + obj.isEmpty());
+        System.out.println("If Map is Empty: " + map.isEmpty());
 
-        obj.clear();
+        map.clear();
 
-        System.out.println("After Clear: " + obj);
+        System.out.println("After Clear: " + map);
 
         sc.close();
     }

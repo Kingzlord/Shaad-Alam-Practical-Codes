@@ -2,7 +2,6 @@
 import java.util.HashSet;
 import java.util.Scanner;
 import java.util.Set;
-import java.util.SortedSet;
 import java.util.TreeSet;
 
 public class Pract10B {
@@ -22,7 +21,7 @@ public class Pract10B {
         System.out.println(set);
         System.out.println("Size of Set: " + set.size());
 
-        SortedSet<String> set1 = new TreeSet<String>(set);
+        TreeSet<String> set1 = new TreeSet<String>(set);
 
         System.out.println("The sorted set is:");
         System.out.println(set1);
