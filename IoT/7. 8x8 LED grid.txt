@@ -1,6 +1,6 @@
 Intallation:
   sudo apt-get install python3-dev python 3 -pip
-  sudo pip-3 install max7219
+  sudo pip3 install max7219
 
 Pins:
   VCC  2
