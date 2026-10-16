@@ -1,0 +1,16 @@
+Intallation:
+  sudo apt-get install python3-dev python 3 -pip
+  sudo pip-3 install max7219
+
+Pins:
+  VCC  2
+  GND  6
+  DIN  19
+  CS   24
+  CLK  23
+
+Code:
+
+import max7219.led as led
+device = led.matrix()
+device.show_message("Hello sycs")
