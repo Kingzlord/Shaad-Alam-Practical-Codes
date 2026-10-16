@@ -1,0 +1,8 @@
+sudo apt-get install Apachez-y
+
+To run html :
+
+cp [--file location--][/var/www/html/beautiful.html]
+
+To find  pi's IP address, type 'netname-1'
+If Apachez is not installed , then > sudo apt-get update
